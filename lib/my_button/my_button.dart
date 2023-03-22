@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({Key? key}) : super(key: key);
+  const MyButton({Key? key, required this.image, required this.text, required this.color, required this.radius, required this.onPressed}) : super(key:key);
+
+  final Widget image;
+  final Widget text;
+  final Color color;
+  final double radius;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +17,8 @@ class MyButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Image.asset('images/glogo.png'),
-            Text(
-              'Login with Google',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
-            ),
+            image,
+            text,
             Opacity(
               opacity: 0.0,
               child: Image.asset('images/glogo.png'),
@@ -23,13 +26,13 @@ class MyButton extends StatelessWidget {
           ],
         ),
         style: ElevatedButton.styleFrom(
-            primary: Colors.white
+            primary: color
         ),
-        onPressed: () {},
+        onPressed: onPressed
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(4.0),
+          Radius.circular(radius),
         ),
       ),
     );
