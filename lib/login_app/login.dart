@@ -78,6 +78,7 @@ class LogIn extends StatelessWidget {
                     'Login with Email',
                     style: TextStyle(color: Colors.white, fontSize: 15.0),
                   ),
+
                   Opacity(
                     opacity: 0.0,
                     child: Icon(
